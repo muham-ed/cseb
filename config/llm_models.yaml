@@ -1,0 +1,8 @@
+# LLM model configurations
+models:
+  - name: claude-3-sonnet
+    provider: anthropic
+    max_tokens: 4000
+  - name: gpt-4
+    provider: openai
+    max_tokens: 4000

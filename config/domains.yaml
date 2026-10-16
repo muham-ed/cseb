@@ -1,0 +1,8 @@
+# Business domains for COBOL programs
+domains:
+  - accounting
+  - payroll
+  - banking
+  - inventory
+  - hr
+  - insurance

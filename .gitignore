@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+.vscode/
+.idea/
+
+# Data
+data/raw/
+data/generated/
+data/validated/
+data/enriched/
+data/testcases/
+data/benchmarks/
+
+# Outputs
+outputs/datasets/
+outputs/reports/
+outputs/models/
+
+# OS
+.DS_Store
+Thumbs.db

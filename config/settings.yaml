@@ -1,0 +1,4 @@
+# General settings
+project_name: CSEB
+version: 0.1.0
+base_path: .

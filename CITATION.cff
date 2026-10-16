@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use CSEB in your research, please cite it as below."
+authors:
+- family-names: "Alaa"
+  given-names: "Mohamed"
+title: "CSEB: COBOL Synthetic Enterprise Benchmark"
+version: 1.0.0
+date-released: 2026-10-17
+url: "https://github.com/cseb/cseb-benchmark"

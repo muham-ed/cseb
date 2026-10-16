@@ -1,0 +1,151 @@
+cseb/
+│
+├── README.md
+├── LICENSE
+├── pyproject.toml
+├── requirements.txt
+├── .env.example
+├── .gitignore
+├── Makefile
+├── docker-compose.yml
+│
+├── config/
+│   ├── settings.yaml
+│   ├── llm_models.yaml
+│   ├── domains.yaml
+│   ├── cobol_style_profiles.yaml
+│   └── validation_rules.yaml
+│
+├── data/
+│   ├── raw/
+│   │   ├── java_sources/
+│   │   ├── csharp_sources/
+│   │   └── source_manifest.json
+│   ├── generated/
+│   │   ├── cobol/
+│   │   ├── java_back/
+│   │   └── python_back/
+│   ├── validated/
+│   │   ├── passed/
+│   │   └── failed/
+│   ├── enriched/
+│   │   ├── descriptions_ar/
+│   │   ├── descriptions_en/
+│   │   └── metadata/
+│   ├── testcases/
+│   │   ├── inputs/
+│   │   ├── expected_outputs/
+│   │   └── cobol_outputs/
+│   └── benchmarks/
+│       ├── cobolcodebench_extended/
+│       └── leaderboard/
+│
+├── src/
+│   ├── generation/
+│   │   ├── __init__.py
+│   │   ├── java_to_cobol.py
+│   │   ├── prompt_templates.py
+│   │   ├── llm_client.py
+│   │   ├── style_emulator.py
+│   │   └── synthetic_data_generator.py
+│   │
+│   ├── validation/
+│   │   ├── __init__.py
+│   │   ├── gnucobol_runner.py
+│   │   ├── syntax_checker.py
+│   │   ├── runtime_checker.py
+│   │   ├── equivalence_checker.py
+│   │   └── validation_report.py
+│   │
+│   ├── enrichment/
+│   │   ├── __init__.py
+│   │   ├── business_describer.py
+│   │   ├── metadata_extractor.py
+│   │   ├── complexity_analyzer.py
+│   │   ├── dependency_mapper.py
+│   │   └── domain_classifier.py
+│   │
+│   ├── storage/
+│   │   ├── __init__.py
+│   │   ├── db.py
+│   │   ├── models.py
+│   │   ├── migrations/
+│   │   ├── repositories/
+│   │   └── export.py
+│   │
+│   ├── benchmark/
+│   │   ├── __init__.py
+│   │   ├── task_builder.py
+│   │   ├── evaluator.py
+│   │   ├── leaderboard.py
+│   │   └── metrics.py
+│   │
+│   ├── legal/
+│   │   ├── __init__.py
+│   │   ├── license_scanner.py
+│   │   ├── provenance_tracker.py
+│   │   ├── compliance_checker.py
+│   │   └── legal_report.py
+│   │
+│   ├── api/
+│   │   ├── __init__.py
+│   │   ├── main.py
+│   │   ├── routes/
+│   │   │   ├── programs.py
+│   │   │   ├── benchmarks.py
+│   │   │   ├── validation.py
+│   │   │   └── legal.py
+│   │   └── schemas.py
+│   │
+│   ├── cli/
+│   │   ├── __init__.py
+│   │   ├── generate.py
+│   │   ├── validate.py
+│   │   ├── enrich.py
+│   │   ├── benchmark.py
+│   │   └── export.py
+│   │
+│   └── dashboard/
+│       ├── app.py
+│       ├── pages/
+│       │   ├── overview.py
+│       │   ├── programs.py
+│       │   ├── validation.py
+│       │   ├── benchmark.py
+│       │   └── legal.py
+│       └── components/
+│
+├── scripts/
+│   ├── bootstrap.sh
+│   ├── generate_all.sh
+│   ├── validate_all.sh
+│   ├── enrich_all.sh
+│   ├── build_benchmark.sh
+│   └── export_dataset.sh
+│
+├── tests/
+│   ├── unit/
+│   ├── integration/
+│   ├── e2e/
+│   └── fixtures/
+│
+├── docs/
+│   ├── architecture.md
+│   ├── data_schema.md
+│   ├── pipeline.md
+│   ├── legal_provenance.md
+│   ├── benchmark_spec.md
+│   └── api_reference.md
+│
+└── outputs/
+    ├── datasets/
+    │   ├── cseb_v1.0.parquet
+    │   ├── cseb_v1.0.jsonl
+    │   └── cseb_v1.0.sqlite
+    ├── reports/
+    │   ├── validation_report.html
+    │   ├── legal_report.pdf
+    │   └── benchmark_leaderboard.csv
+    └── models/
+        ├── cobol_llm_finetuned/
+        └── evaluation_results/

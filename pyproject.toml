@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cseb"
+version = "0.1.0"
+description = "COBOL Synthetic Enterprise Benchmark"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "streamlit",
+    "typer",
+    "pyyaml",
+    "sqlalchemy",
+    "duckdb",
+    "pandas",
+    "requests",
+    "python-dotenv",
+]
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"

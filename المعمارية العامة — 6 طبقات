@@ -1,0 +1,11 @@
+[1] Generation Layer
+      ↓
+[2] Validation Layer
+      ↓
+[3] Enrichment & Labeling Layer
+      ↓
+[4] Storage & Query Layer
+      ↓
+[5] Benchmark Layer
+      ↓
+[6] Legal Provenance Layer

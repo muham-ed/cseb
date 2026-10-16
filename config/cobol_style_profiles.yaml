@@ -1,0 +1,13 @@
+# COBOL style profiles
+profiles:
+  - name: COBOL-85
+    year: 1985
+    features:
+      - EVALUATE
+      - PERFORM
+      - FILE SECTION
+  - name: COBOL-2002
+    year: 2002
+    features:
+      - OBJECT-ORIENTED
+      - XML

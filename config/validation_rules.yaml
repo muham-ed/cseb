@@ -1,0 +1,8 @@
+# Validation rules for generated COBOL
+rules:
+  - name: syntax
+    enabled: true
+  - name: runtime
+    enabled: true
+  - name: equivalence
+    enabled: true
