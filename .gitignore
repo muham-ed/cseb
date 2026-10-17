@@ -9,7 +9,8 @@ venv/
 .idea/
 
 # Data
-data/raw/
+data/raw/*
+!data/raw/source_manifest.json
 data/generated/
 data/validated/
 data/enriched/

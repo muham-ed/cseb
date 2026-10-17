@@ -1,0 +1,8 @@
+[
+  {
+    "file": "data/raw/cobol_sources/gnucobol_hello.cbl",
+    "repo": "https://github.com/OCamlPro/gnucobol",
+    "license": "GPL-3.0-or-later",
+    "note": "Used for interoperability testing only. Excluded from dataset exports."
+  }
+]
