@@ -5,7 +5,7 @@
 ![Tests Passing](https://img.shields.io/badge/Pytest-100%25--Passing-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/License-MIT-orange.svg)
 
-**CSEB** is a clean, 6-layer modular framework for generating, validating, enriching, and benchmarking synthetic COBOL programs with 100% verified legal provenance.
+**CSEB** is a clean, 6-layer modular framework for generating, validating, enriching, and benchmarking synthetic COBOL programs with verified legal provenance.
 
 ---
 
@@ -16,7 +16,7 @@
 3. **Layer 3 (Enrichment)**: McCabe cyclomatic complexity, domain classification, and bilingual (English/Arabic) business descriptions.
 4. **Layer 4 (Storage & Datasets)**: Relational SQLite database (`cseb.db`) and exports to JSONL, Parquet, and standalone SQLite.
 5. **Layer 5 (Benchmark Builder)**: Standardized LLM prompt evaluation harness with automated model leaderboard.
-6. **Layer 6 (Legal Provenance)**: Automated SPDX license auditing ensuring zero IP infringement or NDA leaks.
+6. **Layer 6 (Legal Provenance)**: SPDX license scanner scaffold — provenance tracking schema created, ready for full audit runs.
 
 ---
 

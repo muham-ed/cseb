@@ -17,7 +17,7 @@ class OllamaClient:
         self.model = model
         self.host = host.rstrip("/")
 
-    def is_available(() -> bool:
+    def is_available(self) -> bool:
         """Check if local Ollama server is running and accessible."""
         try:
             r = requests.get(f"{self.host}/api/tags", timeout=3)
@@ -46,12 +46,10 @@ class OllamaClient:
 
 def extract_cobol_code(llm_output: str) -> str:
     """Extract COBOL code block from markdown fences or raw LLM output."""
-    # Match ```cobol ... ``` or ``` ... ```
     match = re.search(r"```(?:cobol)?\s*(.*?)\s*```", llm_output, re.DOTALL | re.IGNORECASE)
     if match:
         return match.group(1).strip()
 
-    # Fallback: find starting at IDENTIFICATION DIVISION
     idx = llm_output.upper().find("IDENTIFICATION DIVISION")
     if idx != -1:
         return llm_output[idx:].strip()
