@@ -75,3 +75,51 @@ def export_sqlite(out_path: Path, db_path: Path = DEFAULT_DB_PATH) -> int:
         return count
     finally:
         conn.close()
+
+
+def export_huggingface(out_dir: Path, db_path: Path = DEFAULT_DB_PATH) -> int:
+    """Export dataset in HuggingFace Datasets layout (train.parquet + dataset_info.json + README.md)."""
+    out_dir = Path(out_dir)
+    data_dir = out_dir / "data"
+    data_dir.mkdir(parents=True, exist_ok=True)
+
+    parquet_path = data_dir / "train-00000-of-00001.parquet"
+    count = export_parquet(parquet_path, db_path=db_path)
+
+    dataset_info = {
+        "dataset_name": "CSEB-COBOL-Enterprise-Benchmark",
+        "description": "Legally compliant, verifiable synthetic COBOL programs with GnuCOBOL validation.",
+        "features": [
+            "program_id", "domain", "loc_count", "complexity_score",
+            "source_license", "generated_cobol", "validation_status"
+        ],
+        "splits": {
+            "train": {
+                "num_bytes": parquet_path.stat().st_size if parquet_path.exists() else 0,
+                "num_examples": count,
+            }
+        },
+        "license": "mit",
+    }
+    (out_dir / "dataset_info.json").write_text(json.dumps(dataset_info, indent=2), encoding="utf-8")
+
+    readme_content = f"""---
+license: mit
+task_categories:
+- code-generation
+language:
+- cobol
+tags:
+- cobol
+- benchmark
+- synthetic
+size_categories:
+- n<{count or 1000}
+---
+
+# CSEB - COBOL Synthetic Enterprise Benchmark Dataset
+Synthetically generated, validated, clean-room COBOL programs.
+Total Examples: {count}
+"""
+    (out_dir / "README.md").write_text(readme_content, encoding="utf-8")
+    return count

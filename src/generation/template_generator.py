@@ -96,9 +96,62 @@ def _gen_conditional(rng: random.Random, idx: int) -> GeneratedProgram:
     )
 
 
+def _gen_exec_sql(rng: random.Random, idx: int) -> GeneratedProgram:
+    domain = rng.choice(_DOMAINS)
+    cust_id = rng.randint(10000000, 99999999)
+    balance = round(rng.uniform(100, 50000), 2)
+    program_id = f"SQL{idx:05d}"
+    label = f"{domain.upper()}-SQL-BAL: "
+
+    source = templates.EXEC_SQL.format(
+        program_id=program_id,
+        cust_id=cust_id,
+        balance=f"{balance:.2f}",
+        label=label,
+    )
+    bal_cents = int(round(balance * 100))
+    expected = f"{label}{bal_cents:09d}"
+
+    return GeneratedProgram(
+        program_id=program_id,
+        domain=domain,
+        template_name="EXEC_SQL",
+        source=source,
+        expected_output=expected,
+        parameters={"cust_id": cust_id, "balance": balance},
+    )
+
+
+def _gen_exec_cics(rng: random.Random, idx: int) -> GeneratedProgram:
+    domain = rng.choice(_DOMAINS)
+    trans_id = f"TR{rng.randint(10, 99)}"
+    user_id = f"USR{rng.randint(1000, 9999)}"
+    program_id = f"CICS{idx:05d}"
+    label = f"{domain.upper()}-CICS-TRANS: "
+
+    source = templates.EXEC_CICS.format(
+        program_id=program_id,
+        trans_id=trans_id,
+        user_id=user_id,
+        label=label,
+    )
+    expected = f"{label}{trans_id} U:{user_id}"
+
+    return GeneratedProgram(
+        program_id=program_id,
+        domain=domain,
+        template_name="EXEC_CICS",
+        source=source,
+        expected_output=expected,
+        parameters={"trans_id": trans_id, "user_id": user_id},
+    )
+
+
 _GENERATORS: List[Callable[[random.Random, int], GeneratedProgram]] = [
     _gen_addition,
     _gen_conditional,
+    _gen_exec_sql,
+    _gen_exec_cics,
 ]
 
 

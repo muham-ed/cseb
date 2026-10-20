@@ -26,3 +26,8 @@ if DB_PATH.exists():
 
     st.subheader("Provenance Audit Trail")
     st.dataframe(df, use_container_width=True)
+
+    from src.legal.legal_report import generate_legal_report
+    st.subheader("📄 Automated Legal Audit Report")
+    report_text = generate_legal_report(db_path=DB_PATH)
+    st.code(report_text, language="text")
